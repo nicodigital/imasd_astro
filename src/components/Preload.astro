@@ -1,0 +1,19 @@
+---
+const response = await fetch(import.meta.env.ID_TRABAJOS);
+const trabajos = await response.json();
+let trabajosSlider = [];
+
+trabajos.map((slide, index) => {
+  if (slide.acf.to_slider != "") {
+    trabajosSlider.push(slide);
+  }
+})
+---
+<link rel="preload" href="/fonts/CuchLightSt.woff2" as='font'  type="font/woff2" crossorigin >
+<link rel="preload" href="/fonts/CuchRegularSt.woff2" as='font'  type="font/woff2" crossorigin >
+
+{
+  trabajosSlider.map( slide => (
+      <link rel="preload" href={ slide.acf.slide_img.url } as='image' >
+  ))
+}

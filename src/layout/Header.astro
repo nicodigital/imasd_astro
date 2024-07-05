@@ -1,0 +1,29 @@
+---
+import "../css/layout/header.css";
+import Brand from "../components/Brand.astro";
+import Burger from "../components/Burger.astro";
+import Menu from "../components/Menu.astro";
+// import SocialLinks from '../components/SocialLinks.astro'
+const homeUrl = import.meta.env.HOME_URL ?? '/';
+---
+<header class="container row ctr-p" >
+    <div class="col-span-2 sm:col-span-3 md:col-span-3">
+        <Brand width="w-40% md:w-full xg:w-[17%]" />
+    </div>
+    <div class="col-span-2 sm:col-span-3 md:col-[7/11]">
+
+        <Menu items={
+            [
+                ['Home', homeUrl ],
+                ['Nosotros', `${homeUrl}nosotros`],
+                ['Trabajos', `${homeUrl}trabajos`],
+                ['Contacto', `${homeUrl}contacto`]
+            ]
+        } />
+
+        <Burger/>
+        
+    </div>
+
+
+</header>

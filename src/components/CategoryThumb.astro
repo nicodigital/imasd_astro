@@ -1,0 +1,17 @@
+---
+const { slug, title, url } = Astro.props;
+---
+<style>
+  img{
+    @apply aspect-video object-cover ;
+  }
+</style>
+<a href={`/cat/${slug}/`}>
+  <figure itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
+    <img src={url} alt={title} itemprop="contentUrl" loading="lazy" decoding="async" />
+    <meta itemprop="name" content={title} />
+    <meta itemprop="url" content={url}/>
+    <meta itemprop="author" content="I+D ─ Estudio de diseño, identidad y branding"/>
+    <figcaption class="mt-1 mb-3">{title}</figcaption>
+  </figure>
+</a>

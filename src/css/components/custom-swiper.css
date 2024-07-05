@@ -1,0 +1,9 @@
+.swiper {
+  @apply w-full h-screen;
+
+  img {
+    @apply block w-full h-full object-cover;
+  }
+
+}
+

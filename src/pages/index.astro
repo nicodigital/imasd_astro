@@ -1,0 +1,57 @@
+---
+// export const prerender = false;
+import Layout from "@/layout/Layout.astro";
+/* Slider */
+import Slider from "@/components/Slider.astro";
+import CategoryThumb from '../components/CategoryThumb.astro'
+---
+
+<Layout
+  title="AstroBox"
+  claim="El nuevo framework de maquetación de sitios de I+D"
+  description="El nuevo framework de maquetación de sitios de I+D"
+>
+  <Slider />
+
+  <!-- Categories -->
+  <section class="container py-6 xg:py-10">
+
+    <div class="row">
+      <div class="col-[1/13] xg:col-[1/7]">
+        <h2 class="text-h1">Nuestro perfil</h2>
+      </div>
+
+      <div class="col-[1/13] xg:col-[7/13]">
+        <p class="text-h1">
+          Transformamos productos y servicios en marcas eficientes y relevantes,
+          a través de un enfoque estratégico. Convertimos ideas en diseño.
+          Generamos respuestas creativas que seducen y construyen sentido.
+        </p>
+      </div>
+    </div>
+
+    <div class="row pt-10 xg:pt-20">
+      <div class="col-[1/13] grid md:grid-cols-2 gap-1 md:gap-2">
+        <CategoryThumb slug="branding" title="Branding" url="https://s3.us-east-1.wasabisys.com/imasd/2020/07/Tiendamia_backlight_ID_Uruguay.png"/>
+        <CategoryThumb slug="senaletica" title="Señaletica" url="https://s3.us-east-1.wasabisys.com/imasd/2020/04/DUCSA-EDIT-3_ID_Uruguay.jpg"/>
+        <CategoryThumb slug="editorial" title="Editorial" url="https://s3.us-east-1.wasabisys.com/imasd/2020/04/57-Premio-Nacional-Artes-Visuales-Afiche-2_ID_Uruguay.jpg"/>
+        <CategoryThumb slug="packaging" title="Packaging" url="https://s3.us-east-1.wasabisys.com/imasd/2022/02/DuCiel-WEB-Mockup-Cajas-Almohadas_ID_Uruguay.jpg"/>
+        <CategoryThumb slug="audiovisual" title="Audiovisual" url="https://s3.us-east-1.wasabisys.com/imasd/img/imasd_audiovisual.webp"/>
+        <CategoryThumb slug="web" title="Web" url="https://s3.us-east-1.wasabisys.com/imasd/img/mac-mockup-imasd.webp"/>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Comencemos un proyecto -->
+  <div class="container row pt-5 xg:pt-8">
+    <div class="col-[1/13] md:col-[7/12]">
+      <a href="/contacto" class="link-underline">
+        <h2 class="text-h1">
+          Comencemos un proyecto
+        </h2>
+      </a>
+    </div>
+  </div>
+
+</Layout>

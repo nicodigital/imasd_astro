@@ -1,0 +1,65 @@
+---
+const response = await fetch(import.meta.env.ID_TRABAJOS);
+const trabajos = await response.json();
+let trabajosSlider = [];
+
+trabajos.map((slide, index) => {
+  if (slide.acf.to_slider != "") {
+    trabajosSlider.push(slide);
+  }
+})
+
+---
+<style>
+  .slider {
+     @apply relative w-full h-screen overflow-hidden;
+  }
+
+  .slide {
+    @apply absolute top-0 left-0 w-full pointer-events-none z-0;
+  }
+
+  .slide.active {
+    @apply z-10 pointer-events-auto;
+  }
+
+  img {
+    @apply h-[66vh] xg:h-screen w-full object-cover object-center;
+  }
+</style>
+
+<div class="slider">
+  {
+    trabajosSlider.map((slide, index) => {
+      // console.log(slide.acf.to_slider);
+        return <a href={`/trabajos/${slide.slug}`} class={`slide ${index === 0 ? 'active' : ''}`} >
+            <figure>
+              <img src={ slide.acf.slide_img.url } alt="" decoding="async"  />
+            </figure>
+          </a>
+
+      return null;
+    })
+  }
+</div>
+
+
+<script>
+  function homeSlider() {
+    let slides = document.querySelectorAll(".slider .slide");
+    let currentSlide = 0;
+    const slideInterval = 4000; // 3 segundos
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }
+
+    setInterval(nextSlide, slideInterval);
+  }
+
+  document.addEventListener("DOMContentLoaded", homeSlider );
+  document.addEventListener('astro:after-swap', homeSlider );
+
+</script>

@@ -1,0 +1,46 @@
+---
+import { getHoy } from '../js/gethoy.js'
+const hoy = getHoy();
+
+---
+<footer class="container row ctr-p mt-10 xg:mt-20" >
+
+    <div class="col-[1/7] xg:col-[1/7]" >
+        <nav>
+            <a href="/nosotros">Nosotros</a> <br>
+            <a href="/trabajos">Trabajos</a> <br>
+            <a href="/contacto">Contacto</a> <br>
+            <a href="/Blog">Blog</a>
+        </nav>
+    </div>
+
+    <div class="col-[7/13] xg:col-[7/9]">
+        <p>
+            I+D diseño <br>
+            Todos los derechos <br>
+            reservados <br>
+            {`© ${hoy}`}
+        </p>
+    </div>
+
+    <div class="col-[1/13] xg:col-[9/10]">
+        info@id.net.uy
+    </div>
+
+    <div class="col-[1/13] xg:col-[11/12]">
+        <ul>
+            <li>
+                <a href="https://www.instagram.com/idcomunicacion/" target='_blank' rel='noreferrer noopener'  >Instagram</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/i-d-dise-o/" target='_blank' rel='noreferrer noopener'>Linkedin</a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/idcomunicacion/" target='_blank' rel='noreferrer noopener'>Facebook</a>
+            </li>
+        </ul>
+    </div>
+  
+</footer>
+
+

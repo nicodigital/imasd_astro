@@ -1,0 +1,53 @@
+---
+import Layout from "../../layout/Layout.astro";
+
+// Esta función solo es necesaria en caso de preRendered
+export async function getStaticPaths() {
+
+  const response = await fetch(import.meta.env.ID_TRABAJOS);
+  const getTrabajos = await response.json();
+  // NO DEBEMOS HACER CONSOLE AQUI //
+
+  return getTrabajos.map((work) => {
+
+    let slug = work.slug;
+
+    return {
+      params: {
+        trabajo: slug,
+      },
+    };
+  });
+
+}
+
+const { trabajo } = Astro.params;
+const response = await fetch(import.meta.env.ID_TRABAJOS);
+const getWorks = await response.json();
+
+const currWork = getWorks.find(
+  (work) => work.slug == trabajo
+);
+
+---
+
+<Layout
+  title=""
+  claim="El nuevo framework de maquetación de sitios de I+D"
+  description="El nuevo framework de maquetación de sitios de I+D"
+>
+  <div class="container row mt-10 xg:mt-15">
+    <div class="col-[1/13] grid gap-2">
+      { 
+        currWork.acf.work_gallery.map( (img) => {
+            return (
+            <figure>
+              <img src={ img.url } alt={ img.alt } loading="lazy" decoding="async"  />
+            </figure>
+            );
+        })
+      } 
+    </div>
+  </div>
+
+</Layout>

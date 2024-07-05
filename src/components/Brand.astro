@@ -1,0 +1,15 @@
+---
+const homeUrl = import.meta.env.HOME_URL ?? '/';
+const { width } = Astro.props;
+
+// console.log(siteUrl);
+
+---
+
+<a href={homeUrl} class={`${width} block`} data-astro-prefetch="hover" >
+    <svg class="w-full h-auto" width="720" height="231" viewBox="0 0 720 231" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M606.016 0.745972H498.681H496.782V3.59597V112.831V117.581V226.815V229.665H498.681H606.016C702.902 229.664 720 148.926 720 114.73C720 81.485 702.902 0.745972 606.016 0.745972ZM601.267 182.171H551.873V118.529V113.78V49.189H601.267C657.309 49.189 663.008 99.532 663.008 115.68C663.008 131.828 657.309 182.171 601.267 182.171Z" fill="black"/>
+        <path d="M123.483 49.189V182.171H191.874V230.614H0V182.171H68.391V49.189H0V1.69598H191.874V50.139H123.483V49.189Z" fill="black"/>
+        <path d="M359.05 90.983H446.437V138.476H358.1V230.614H303.958V138.476H215.62V90.983H303.958V1.69598H359.05V90.983Z" fill="black"/>
+    </svg>  
+</a>
